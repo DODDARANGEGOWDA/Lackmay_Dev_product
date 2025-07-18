@@ -1,0 +1,9 @@
+{
+	"name": "adf-huctec-dev",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "70cc308e-de1f-4f00-9700-f41012229889",
+		"tenantId": "3f057dac-bb62-4d16-aa04-549a4b1b6f60"
+	}
+}
