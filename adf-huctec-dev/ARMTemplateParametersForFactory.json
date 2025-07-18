@@ -5,13 +5,28 @@
 		"factoryName": {
 			"value": "adf-huctec-dev"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"SqlServer1_connectionString": {
 			"value": "integrated security=True;Data Source=DESKTOP-OGG0RHF\\SQLEXPRESS;Initial Catalog=B7_supplyChainProject"
 		},
 		"SqlServer1_password": {
 			"value": ""
 		},
+		"SqlServerDatabaseDynamic_connectionString": {
+			"value": "integrated security=True;Data Source=DESKTOP-OGG0RHF\\SQLEXPRESS;Initial Catalog=@{linkedService().Database}"
+		},
+		"SqlServerDatabaseDynamic_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adfhuteclacmaystorage.dfs.core.windows.net/"
+		},
 		"SqlServer1_properties_typeProperties_userName": {
+			"value": "DESKTOP-OGG0RHF\\Administrator"
+		},
+		"SqlServerDatabaseDynamic_properties_typeProperties_userName": {
 			"value": "DESKTOP-OGG0RHF\\Administrator"
 		}
 	}

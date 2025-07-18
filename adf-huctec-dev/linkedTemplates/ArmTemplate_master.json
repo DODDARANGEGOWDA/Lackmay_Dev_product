@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-huctec-dev"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
 		"SqlServer1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SqlServer1'",
@@ -16,7 +20,24 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer1'"
 		},
+		"SqlServerDatabaseDynamic_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServerDatabaseDynamic'",
+			"defaultValue": "integrated security=True;Data Source=DESKTOP-OGG0RHF\\SQLEXPRESS;Initial Catalog=@{linkedService().Database}"
+		},
+		"SqlServerDatabaseDynamic_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServerDatabaseDynamic'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfhuteclacmaystorage.dfs.core.windows.net/"
+		},
 		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-OGG0RHF\\Administrator"
+		},
+		"SqlServerDatabaseDynamic_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "DESKTOP-OGG0RHF\\Administrator"
 		},
@@ -47,14 +68,29 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
 					"SqlServer1_connectionString": {
 						"value": "[parameters('SqlServer1_connectionString')]"
 					},
 					"SqlServer1_password": {
 						"value": "[parameters('SqlServer1_password')]"
 					},
+					"SqlServerDatabaseDynamic_connectionString": {
+						"value": "[parameters('SqlServerDatabaseDynamic_connectionString')]"
+					},
+					"SqlServerDatabaseDynamic_password": {
+						"value": "[parameters('SqlServerDatabaseDynamic_password')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
 					"SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					},
+					"SqlServerDatabaseDynamic_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServerDatabaseDynamic_properties_typeProperties_userName')]"
 					}
 				}
 			},
