@@ -18,12 +18,12 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbo'\n\n",
+						"sqlReaderQuery": "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbo'\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "SqlServerTable2",
+						"referenceName": "SqlServerTable3",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -73,7 +73,7 @@
 									"formatSettings": {
 										"type": "DelimitedTextWriteSettings",
 										"quoteAllText": true,
-										"fileExtension": ".txt"
+										"fileExtension": ".csv"
 									}
 								},
 								"enableStaging": false,
@@ -89,17 +89,7 @@
 							"inputs": [
 								{
 									"referenceName": "SqlServerTable2",
-									"type": "DatasetReference",
-									"parameters": {
-										"TableSchema": {
-											"value": "@item().TableSchema",
-											"type": "Expression"
-										},
-										"TableName": {
-											"value": "@item().TableName",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
