@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-huctec-dev"
+		},
+		"SqlServer1_connectionString": {
+			"value": "integrated security=True;Data Source=DESKTOP-OGG0RHF\\SQLEXPRESS;Initial Catalog=B7_supplyChainProject"
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "DESKTOP-OGG0RHF\\Administrator"
+		}
+	}
+}
