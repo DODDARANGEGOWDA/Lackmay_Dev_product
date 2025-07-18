@@ -1,0 +1,15 @@
+{
+	"name": "SqlServerTablemahesh",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer2",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"DatabaseMahes": "B7_supplyChainProject"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
