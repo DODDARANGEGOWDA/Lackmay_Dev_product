@@ -88,23 +88,23 @@
 							"inputs": [
 								{
 									"referenceName": "SqlServerTabledello",
-									"type": "DatasetReference",
-									"parameters": {
-										"TABLE_SCHEMA": {
-											"value": "@item().TABLE_SCHEMA",
-											"type": "Expression"
-										},
-										"TABLE_name": {
-											"value": "@item().TABLE_NAME",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
 								{
 									"referenceName": "DelimitedTextdell",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"schema_name": {
+											"value": "@item().TABLE_SCHEMA",
+											"type": "Expression"
+										},
+										"table_name": {
+											"value": "@item().TABLE_name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
