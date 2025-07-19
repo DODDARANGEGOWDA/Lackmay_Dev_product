@@ -43,7 +43,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('LookupActivity').output.values",
+						"value": "@activity('LookupActivity').output.count",
 						"type": "Expression"
 					},
 					"activities": [
@@ -73,7 +73,7 @@
 									"formatSettings": {
 										"type": "DelimitedTextWriteSettings",
 										"quoteAllText": true,
-										"fileExtension": ".txt"
+										"fileExtension": ".csv"
 									}
 								},
 								"enableStaging": false,
@@ -88,15 +88,15 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SqlServerTable2",
+									"referenceName": "SqlServerTable3",
 									"type": "DatasetReference",
 									"parameters": {
-										"TABLE_SCHEMA": {
-											"value": "@item().TABLE_SCHEMA",
+										"TableSchema": {
+											"value": "@item().values",
 											"type": "Expression"
 										},
-										"TABLE_NAME": {
-											"value": "@item().TABLE_NAME",
+										"TableName": {
+											"value": "@item().values",
 											"type": "Expression"
 										}
 									}
