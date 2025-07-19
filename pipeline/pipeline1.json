@@ -88,7 +88,17 @@
 							"inputs": [
 								{
 									"referenceName": "SqlServerTabledello",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"S_NAME": {
+											"value": "@item().TABLE_SCHEMA",
+											"type": "Expression"
+										},
+										"T_NAME": {
+											"value": "@item().TABLE_name",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
