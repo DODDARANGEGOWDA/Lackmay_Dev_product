@@ -8,14 +8,6 @@
 				"Database": "B7_supplyChainProject"
 			}
 		},
-		"parameters": {
-			"TABLE_SCHEMA": {
-				"type": "string"
-			},
-			"TABLE_NAME": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []
