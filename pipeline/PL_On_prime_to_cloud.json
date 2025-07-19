@@ -64,46 +64,11 @@
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
-								"sink": {
-									"type": "DelimitedTextSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
-									}
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
+								"enableStaging": false
 							},
 							"inputs": [
 								{
-									"referenceName": "SqlServerTabledell",
-									"type": "DatasetReference",
-									"parameters": {
-										"TABLE_SCHEMA": {
-											"value": "@item().TABLE_SCHEMA",
-											"type": "Expression"
-										},
-										"TABLE_NAME": {
-											"value": "@item().TABLE_NAME",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "DelimitedText1DELL",
+									"referenceName": "SqlServerTablemsdbo",
 									"type": "DatasetReference"
 								}
 							]
