@@ -88,7 +88,17 @@
 							"inputs": [
 								{
 									"referenceName": "SqlServerTable4HP",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TABLE_SCHEMA": {
+											"value": "@item().TABLE_SCHEMA",
+											"type": "Expression"
+										},
+										"TABLE_NAME": {
+											"value": "@item().TABLE_NAME",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
