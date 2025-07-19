@@ -8,6 +8,14 @@
 				"Database": "dell"
 			}
 		},
+		"parameters": {
+			"S_NAME": {
+				"type": "string"
+			},
+			"T_NAME": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []
