@@ -5,7 +5,7 @@
 			"referenceName": "SqlServerDatabaseDynamic",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"Database": "DELL"
+				"Database": "HP"
 			}
 		},
 		"annotations": [],
