@@ -100,11 +100,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"Folder_name": {
-											"value": "@item().name",
+											"value": "@item().Folder_name",
 											"type": "Expression"
 										},
 										"File_name": {
-											"value": "@item().Floder",
+											"value": "@item().FileName",
 											"type": "Expression"
 										}
 									}
@@ -116,11 +116,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"Floder": {
-											"value": "@item().name",
+											"value": "@item().Floder_name",
 											"type": "Expression"
 										},
 										"File": {
-											"value": "@item().Floder",
+											"value": "@item().FileName",
 											"type": "Expression"
 										}
 									}
