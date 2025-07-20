@@ -1,0 +1,38 @@
+{
+	"name": "DelimitedTextvivot",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"fo": {
+				"type": "string"
+			},
+			"fi": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().fi",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().fo",
+					"type": "Expression"
+				},
+				"fileSystem": "presentation-layer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
