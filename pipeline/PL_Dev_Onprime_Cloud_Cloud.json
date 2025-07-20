@@ -229,6 +229,10 @@
 										"Folder": {
 											"value": "@item().name",
 											"type": "Expression"
+										},
+										"File": {
+											"value": "@item().type",
+											"type": "Expression"
 										}
 									}
 								}
