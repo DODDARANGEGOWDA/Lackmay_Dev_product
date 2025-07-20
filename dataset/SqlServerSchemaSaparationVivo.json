@@ -1,5 +1,5 @@
 {
-	"name": "SqlServerSchemaSaparation",
+	"name": "SqlServerSchemaSaparationVivo",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServerDatabaseDynamic",
