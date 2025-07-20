@@ -97,17 +97,7 @@
 							"inputs": [
 								{
 									"referenceName": "DelimitedTextvivo",
-									"type": "DatasetReference",
-									"parameters": {
-										"Flod": {
-											"value": "@item().name",
-											"type": "Expression"
-										},
-										"File": {
-											"value": "@item().type",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
