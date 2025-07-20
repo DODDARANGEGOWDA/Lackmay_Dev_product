@@ -97,7 +97,13 @@
 							"inputs": [
 								{
 									"referenceName": "DelimitedTextvivo",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"fol": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
