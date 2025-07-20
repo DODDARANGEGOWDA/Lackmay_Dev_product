@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"Table_schema": {
+			"Table_Schema": {
 				"type": "string"
 			},
 			"Table_name": {
@@ -23,7 +23,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().Table_schema",
+					"value": "@dataset().Table_Schema",
 					"type": "Expression"
 				},
 				"fileSystem": "processed-zone-layer"
