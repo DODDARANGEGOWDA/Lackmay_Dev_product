@@ -3,7 +3,10 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServerDatabaseDynamic",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database": "DELL"
+			}
 		},
 		"annotations": [],
 		"type": "SqlServerTable",
