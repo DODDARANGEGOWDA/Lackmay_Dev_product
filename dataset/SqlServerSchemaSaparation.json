@@ -1,0 +1,33 @@
+{
+	"name": "SqlServerSchemaSaparation",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerDatabaseDynamic",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database": "msdb"
+			}
+		},
+		"parameters": {
+			"TABLE_SCHEMA": {
+				"type": "string"
+			},
+			"TABLE_NAME": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().TABLE_SCHEMA",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().TABLE_NAME",
+				"type": "Expression"
+			}
+		}
+	}
+}
