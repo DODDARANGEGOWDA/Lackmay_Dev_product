@@ -73,12 +73,57 @@
 										"type": "DelimitedTextReadSettings"
 									}
 								},
-								"enableStaging": false
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".csv"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
 									"referenceName": "DelimitedTextvivo",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"Flod": {
+											"value": "@item().name",
+											"type": "Expression"
+										},
+										"File": {
+											"value": "@item().type",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DelimitedTextvivot",
+									"type": "DatasetReference",
+									"parameters": {
+										"fo": {
+											"value": "@item().name",
+											"type": "Expression"
+										},
+										"fi": {
+											"value": "@item().type",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
