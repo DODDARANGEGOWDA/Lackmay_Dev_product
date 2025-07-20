@@ -81,7 +81,7 @@
 									"formatSettings": {
 										"type": "DelimitedTextWriteSettings",
 										"quoteAllText": true,
-										"fileExtension": ".csv"
+										"fileExtension": ".txt"
 									}
 								},
 								"enableStaging": false,
@@ -99,12 +99,8 @@
 									"referenceName": "DelimitedText2vivo",
 									"type": "DatasetReference",
 									"parameters": {
-										"Floder_name": {
+										"Folder_name": {
 											"value": "@item().name",
-											"type": "Expression"
-										},
-										"File_name": {
-											"value": "@item().type",
 											"type": "Expression"
 										}
 									}
@@ -117,10 +113,6 @@
 									"parameters": {
 										"Floder": {
 											"value": "@item().name",
-											"type": "Expression"
-										},
-										"File": {
-											"value": "@item().type",
 											"type": "Expression"
 										}
 									}
