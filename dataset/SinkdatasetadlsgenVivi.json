@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"TABLE_SCHEMA": {
+			"TABLE_SCHEMAO": {
 				"type": "string"
 			},
-			"TABLE_NAME": {
+			"TABLE_NAMEO": {
 				"type": "string"
 			}
 		},
@@ -19,11 +19,11 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().TABLE_NAME",
+					"value": "@dataset().TABLE_NAMEO",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().TABLE_SCHEMA",
+					"value": "@dataset().TABLE_SCHEMAO",
 					"type": "Expression"
 				},
 				"fileSystem": "presentation-layer"
