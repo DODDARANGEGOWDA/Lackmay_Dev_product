@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedTextdell",
+	"name": "DelimitedTextdellSinkdataset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",

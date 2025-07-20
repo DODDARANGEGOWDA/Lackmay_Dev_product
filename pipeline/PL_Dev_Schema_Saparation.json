@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "PL_Dev_Schema_Saparation",
 	"properties": {
 		"activities": [
 			{
@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "SqlServerTabledell",
+						"referenceName": "SqlServerTabledellSchema",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -87,7 +87,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SqlServerTabledello",
+									"referenceName": "SqlServerTabledelloSchema",
 									"type": "DatasetReference",
 									"parameters": {
 										"S_NAME": {
@@ -103,7 +103,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DelimitedTextdell",
+									"referenceName": "DelimitedTextdellSinkdataset",
 									"type": "DatasetReference",
 									"parameters": {
 										"schema_name": {

@@ -1,5 +1,5 @@
 {
-	"name": "SqlServerTabledello",
+	"name": "SqlServerTabledelloSchema",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServerDatabaseDynamic",
