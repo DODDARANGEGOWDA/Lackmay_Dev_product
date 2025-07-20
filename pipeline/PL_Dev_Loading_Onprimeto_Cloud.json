@@ -107,11 +107,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"TABLE_SCHEMAO": {
-											"value": "@item().TABLE_SCHEMAO",
+											"value": "@item().TABLE_SCHEMA",
 											"type": "Expression"
 										},
 										"TABLE_NAMEO": {
-											"value": "@item().TABLE_NAMEO",
+											"value": "@item().TABLE_NAME",
 											"type": "Expression"
 										}
 									}
