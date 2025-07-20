@@ -1,0 +1,12 @@
+{
+	"name": "SqlServerTableDynamicVivi",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerDatabaseDynamic",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
