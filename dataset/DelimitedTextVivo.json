@@ -1,0 +1,38 @@
+{
+	"name": "DelimitedTextVivo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"xxxxx": {
+				"type": "string"
+			},
+			"yyyyy": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().yyyyy",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().xxxxx",
+					"type": "Expression"
+				},
+				"fileSystem": "presentation-layer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
