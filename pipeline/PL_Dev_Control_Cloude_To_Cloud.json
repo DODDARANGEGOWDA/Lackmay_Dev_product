@@ -119,7 +119,17 @@
 										"inputs": [
 											{
 												"referenceName": "SqlServerTableHPThr",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"Folder": {
+														"value": "item().Source_Object_Schema",
+														"type": "Expression"
+													},
+													"File": {
+														"value": "item().Source_Object_Name",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
