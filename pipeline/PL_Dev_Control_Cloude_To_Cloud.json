@@ -141,11 +141,11 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"Folder": {
-														"value": "item().Source_Object_Schema",
+														"value": "@item().Source_Object_Schema",
 														"type": "Expression"
 													},
 													"File": {
-														"value": "item().Source_Object_Name",
+														"value": "@item().Source_Object_Name",
 														"type": "Expression"
 													}
 												}
@@ -154,7 +154,17 @@
 										"outputs": [
 											{
 												"referenceName": "DelimitedTextHP",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"Folder": {
+														"value": "@item().Target_Location",
+														"type": "Expression"
+													},
+													"File": {
+														"value": "@concat(item().Target_Object_Name,'.csv')",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
