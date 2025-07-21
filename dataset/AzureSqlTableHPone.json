@@ -1,0 +1,20 @@
+{
+	"name": "AzureSqlTableHPone",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Sources_Object_type": {
+				"type": "string"
+			},
+			"Sources_Object_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
