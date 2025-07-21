@@ -18,7 +18,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT * FROM [dbo].[controltable]\nWHERE indicator in (0,1)",
+						"sqlReaderQuery": "SELECT * FROM [dbo].[controltable] WHERE indicator in (0,1)",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
