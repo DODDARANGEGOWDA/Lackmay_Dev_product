@@ -77,10 +77,51 @@
 											},
 											"dataset": {
 												"referenceName": "SqlServerTableHPTwo",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"FileSchema": {
+														"value": "item().Source_Object_Schema",
+														"type": "Expression"
+													},
+													"FileName": "item().Source_Object_Name"
+												}
 											},
 											"firstRowOnly": false
 										}
+									},
+									{
+										"name": "Copy data1",
+										"type": "Copy",
+										"dependsOn": [
+											{
+												"activity": "Lookup1",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "SqlServerSource",
+												"queryTimeout": "02:00:00",
+												"partitionOption": "None"
+											},
+											"enableStaging": false
+										},
+										"inputs": [
+											{
+												"referenceName": "SqlServerTableHPThr",
+												"type": "DatasetReference"
+											}
+										]
 									}
 								]
 							}
