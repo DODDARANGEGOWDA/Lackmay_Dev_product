@@ -169,7 +169,7 @@
 														"type": "Expression"
 													},
 													"Target_Object_Name": {
-														"value": "@concat(item().Target_Object_Name,'.parquet')",
+														"value": "@concat(item().Target_Object_Name,'.csv')",
 														"type": "Expression"
 													}
 												}
