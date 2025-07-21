@@ -1,0 +1,33 @@
+{
+	"name": "SqlServerTableHPTwo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerDatabaseDynamic",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database": "B7_supplyChainProject"
+			}
+		},
+		"parameters": {
+			"FileSchema": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().FileSchema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().FileName",
+				"type": "Expression"
+			}
+		}
+	}
+}
