@@ -1,0 +1,30 @@
+{
+	"name": "AzureSqlTablehptwo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Sources_Object_Schema": {
+				"type": "string"
+			},
+			"Sources_Object_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().Sources_Object_Schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().Sources_Object_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
