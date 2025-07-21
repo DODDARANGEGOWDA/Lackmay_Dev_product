@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlCloude_one",
+	"name": "AzureSqlCloude_oneHP",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
