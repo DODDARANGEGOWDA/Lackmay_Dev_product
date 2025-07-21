@@ -80,10 +80,10 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"FileSchema": {
-														"value": "item().Source_Object_Schema",
+														"value": "@item().Source_Object_Schema",
 														"type": "Expression"
 													},
-													"FileName": "item().Source_Object_Name"
+													"FileName": "@item().Source_Object_Name"
 												}
 											},
 											"firstRowOnly": false
@@ -167,6 +167,50 @@
 												}
 											}
 										]
+									},
+									{
+										"name": "Stored procedure1",
+										"type": "SqlServerStoredProcedure",
+										"dependsOn": [
+											{
+												"activity": "Copy data1",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"storedProcedureName": "[dbo].[sp_UpdateWatermark]",
+											"storedProcedureParameters": {
+												"Source_Object_Name": {
+													"value": {
+														"value": "@item().Source_Object_Name",
+														"type": "Expression"
+													},
+													"type": "String"
+												},
+												"Watermark_Column": {
+													"value": "@item().watermark_column",
+													"type": "String"
+												},
+												"Watermark_Value": {
+													"value": "@activity('Lookup2').output.value[0].watermark_value",
+													"type": "String"
+												}
+											}
+										},
+										"linkedServiceName": {
+											"referenceName": "AzureSqlDatabase1",
+											"type": "LinkedServiceReference"
+										}
 									}
 								]
 							}
