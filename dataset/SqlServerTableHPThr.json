@@ -1,0 +1,33 @@
+{
+	"name": "SqlServerTableHPThr",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerDatabaseDynamic",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database": "B7_supplyChainProject"
+			}
+		},
+		"parameters": {
+			"Folder": {
+				"type": "string"
+			},
+			"File": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().Folder",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().File",
+				"type": "Expression"
+			}
+		}
+	}
+}
