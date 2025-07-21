@@ -73,12 +73,23 @@
 										"typeProperties": {
 											"source": {
 												"type": "AzureSqlSource",
+												"sqlReaderQuery": "@if(equals(toLower(item().Load_Type), 'incremental'), concat('SELECT MAX(', item().Watermark_column, ') AS Watermark_Value FROM [', item().Source_Object_Schema, '].', item().Source_Object_Name), 'SELECT NULL AS Watermark_Value')",
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
 											"dataset": {
 												"referenceName": "AzureSqlTableHPone",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"Sources_Object_schema": {
+														"value": "item().Source_Object_Schema",
+														"type": "Expression"
+													},
+													"Sources_Object_name": {
+														"value": "item().Source_Object_Name",
+														"type": "Expression"
+													}
+												}
 											},
 											"firstRowOnly": false
 										}
