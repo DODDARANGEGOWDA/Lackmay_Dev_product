@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT * FROM [dbo].[EMP]",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -42,6 +43,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT * FROM [dbo].[controltable]",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
