@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT * FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA IN('dbo','hr')",
+						"sqlReaderQuery": "SELECT * FROM INFORMATION_SCHEMA.TABLES",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
