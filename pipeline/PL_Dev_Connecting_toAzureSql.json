@@ -129,12 +129,12 @@
 												"type": "DelimitedTextSink",
 												"storeSettings": {
 													"type": "AzureBlobFSWriteSettings",
-													"copyBehavior": "PreserveHierarchy"
+													"copyBehavior": "MergeFiles"
 												},
 												"formatSettings": {
 													"type": "DelimitedTextWriteSettings",
 													"quoteAllText": true,
-													"fileExtension": ".txt"
+													"fileExtension": ".csv"
 												}
 											},
 											"enableStaging": false,
@@ -173,7 +173,7 @@
 														"type": "Expression"
 													},
 													"Target_Object_Name": {
-														"value": "@concat(item().Target_Object_Name,'.csv')",
+														"value": "@item().Target_Object_Name",
 														"type": "Expression"
 													}
 												}
