@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT * FROM INFORMATION_SCHEMA.TABLES",
+						"sqlReaderQuery": "SELECT * FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA IN('dbo','hr')",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -49,6 +49,8 @@
 						{
 							"name": "If Condition1",
 							"type": "IfCondition",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
@@ -131,6 +133,78 @@
 									}
 								]
 							}
+						},
+						{
+							"name": "Copy data1_copy1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SqlServerTableone",
+									"type": "DatasetReference",
+									"parameters": {
+										"TABLE_SCHEMA": {
+											"value": "@item().TABLE_SCHEMA",
+											"type": "Expression"
+										},
+										"TABLE_NAME": {
+											"value": "@item().TABLE_NAME",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DelimitedTextONE",
+									"type": "DatasetReference",
+									"parameters": {
+										"TABLE_SCHEMA": {
+											"value": "@item().TABLE_SCHEMA",
+											"type": "Expression"
+										},
+										"TABLE_NAME": {
+											"value": "@item().TABLE_NAME",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						}
 					]
 				}
