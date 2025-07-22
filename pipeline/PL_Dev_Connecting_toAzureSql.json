@@ -129,7 +129,10 @@
 												"type": "AzureSqlSink",
 												"writeBehavior": "upsert",
 												"upsertSettings": {
-													"useTempDB": true
+													"useTempDB": true,
+													"keys": [
+														"PO_ID"
+													]
 												},
 												"sqlWriterUseTableLock": false,
 												"tableOption": "autoCreate",
@@ -166,7 +169,7 @@
 												"referenceName": "AzureSqlTable2",
 												"type": "DatasetReference",
 												"parameters": {
-													"TABLE_NAME": "newincr"
+													"TABLE_NAME": "newON"
 												}
 											}
 										]
