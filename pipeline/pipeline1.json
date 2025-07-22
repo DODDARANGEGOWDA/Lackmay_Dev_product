@@ -47,76 +47,90 @@
 					},
 					"activities": [
 						{
-							"name": "Copy data1",
-							"type": "Copy",
+							"name": "If Condition1",
+							"type": "IfCondition",
 							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
 							"userProperties": [],
 							"typeProperties": {
-								"source": {
-									"type": "SqlServerSource",
-									"queryTimeout": "02:00:00",
-									"partitionOption": "None"
+								"expression": {
+									"value": "@equals(item().TABLE_SCHEMA,'dbo')",
+									"type": "Expression"
 								},
-								"sink": {
-									"type": "DelimitedTextSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
-									}
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "SqlServerTableone",
-									"type": "DatasetReference",
-									"parameters": {
-										"TABLE_SCHEMA": {
-											"value": "@item().TABLE_SCHEMA",
-											"type": "Expression"
+								"ifTrueActivities": [
+									{
+										"name": "Copy data1",
+										"type": "Copy",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
 										},
-										"TABLE_NAME": {
-											"value": "@item().TABLE_NAME",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "DelimitedTextONE",
-									"type": "DatasetReference",
-									"parameters": {
-										"TABLE_SCHEMA": {
-											"value": "@item().TABLE_SCHEMA",
-											"type": "Expression"
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "SqlServerSource",
+												"queryTimeout": "02:00:00",
+												"partitionOption": "None"
+											},
+											"sink": {
+												"type": "DelimitedTextSink",
+												"storeSettings": {
+													"type": "AzureBlobFSWriteSettings"
+												},
+												"formatSettings": {
+													"type": "DelimitedTextWriteSettings",
+													"quoteAllText": true,
+													"fileExtension": ".txt"
+												}
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": true,
+													"treatBooleanAsNumber": false
+												}
+											}
 										},
-										"TABLE_NAME": {
-											"value": "@item().TABLE_NAME",
-											"type": "Expression"
-										}
+										"inputs": [
+											{
+												"referenceName": "SqlServerTableone",
+												"type": "DatasetReference",
+												"parameters": {
+													"TABLE_SCHEMA": {
+														"value": "@item().TABLE_SCHEMA",
+														"type": "Expression"
+													},
+													"TABLE_NAME": {
+														"value": "@item().TABLE_NAME",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "DelimitedTextONE",
+												"type": "DatasetReference",
+												"parameters": {
+													"TABLE_SCHEMA": {
+														"value": "@item().TABLE_SCHEMA",
+														"type": "Expression"
+													},
+													"TABLE_NAME": {
+														"value": "@item().TABLE_NAME",
+														"type": "Expression"
+													}
+												}
+											}
+										]
 									}
-								}
-							]
+								]
+							}
 						}
 					]
 				}
