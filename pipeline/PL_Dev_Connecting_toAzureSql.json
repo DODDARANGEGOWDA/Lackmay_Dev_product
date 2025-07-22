@@ -163,7 +163,7 @@
 												"referenceName": "AzureSqlTable2",
 												"type": "DatasetReference",
 												"parameters": {
-													"TABLE_NAME": "Sales"
+													"TABLE_NAME": "newincremental"
 												}
 											}
 										]
