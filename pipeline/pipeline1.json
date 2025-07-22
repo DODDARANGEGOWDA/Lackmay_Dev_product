@@ -49,13 +49,11 @@
 						{
 							"name": "If Condition1",
 							"type": "IfCondition",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(item().TABLE_SCHEMA,'dbo')",
+									"value": "@or(equals(item().TABLE_SCHEMA,'dbo'),equals(item().TABLE_SCHEMA,'test'))",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
@@ -137,6 +135,8 @@
 						{
 							"name": "Copy data1_copy1",
 							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
