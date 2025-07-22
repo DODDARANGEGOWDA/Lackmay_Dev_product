@@ -15,16 +15,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT * FROM [dbo].[EMP]",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "SqlServerTabletwo",
-						"type": "DatasetReference"
-					},
 					"firstRowOnly": false
 				}
 			},
@@ -41,16 +31,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT * FROM [dbo].[controltable]",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "SqlServerTable4two",
-						"type": "DatasetReference"
-					},
 					"firstRowOnly": false
 				}
 			}
