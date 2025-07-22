@@ -64,12 +64,57 @@
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
-								"enableStaging": false
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
 									"referenceName": "SqlServerTableone",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TABLE_SCHEMA": {
+											"value": "@item().TABLE_SCHEMA",
+											"type": "Expression"
+										},
+										"TABLE_NAME": {
+											"value": "@item().TABLE_NAME",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DelimitedTextONE",
+									"type": "DatasetReference",
+									"parameters": {
+										"TABLE_SCHEMA": {
+											"value": "@item().TABLE_SCHEMA",
+											"type": "Expression"
+										},
+										"TABLE_NAME": {
+											"value": "@item().TABLE_NAME",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
