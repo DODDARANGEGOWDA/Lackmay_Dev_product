@@ -129,7 +129,7 @@
 												"type": "DelimitedTextSink",
 												"storeSettings": {
 													"type": "AzureBlobFSWriteSettings",
-													"copyBehavior": "FlattenHierarchy"
+													"copyBehavior": "MergeFiles"
 												},
 												"formatSettings": {
 													"type": "DelimitedTextWriteSettings",
