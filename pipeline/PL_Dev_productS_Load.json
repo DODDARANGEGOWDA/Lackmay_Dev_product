@@ -5,8 +5,6 @@
 			{
 				"name": "Lookup1",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -19,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT * FROM [dbo].[controltable] WHERE Source_Object_Name ='productS'",
+						"sqlReaderQuery": "SELECT * FROM [dbo].[controltable] WHERE Indicator IN (0,1)",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -33,8 +31,6 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Lookup1",
@@ -76,7 +72,10 @@
 										"typeProperties": {
 											"source": {
 												"type": "SqlServerSource",
-												"sqlReaderQuery": "@if(equals(toLower(item().Load_Type), 'incremental'), concat('SELECT MAX(', item().Watermark_column, ') AS Watermark_Value FROM [', item().Source_Object_Schema, '].', item().Source_Object_Name), 'SELECT NULL AS Watermark_Value')",
+												"sqlReaderQuery": {
+													"value": "@if(equals(toLower(item().Load_Type), 'incremental'), concat('SELECT MAX(', item().Watermark_column, ') AS Watermark_Value FROM [', item().Source_Object_Schema, '].', item().Source_Object_Name), 'SELECT NULL AS Watermark_Value')",
+													"type": "Expression"
+												},
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
@@ -84,11 +83,11 @@
 												"referenceName": "SqlServerTable4productS",
 												"type": "DatasetReference",
 												"parameters": {
-													"Soures_Object_Schema": {
+													"Source_Object__Schema": {
 														"value": "@item().Source_Object_Schema",
 														"type": "Expression"
 													},
-													"Soures_Object_Name": {
+													"Source_Object_Name": {
 														"value": "@item().Source_Object_Name",
 														"type": "Expression"
 													}
@@ -119,13 +118,22 @@
 										"typeProperties": {
 											"source": {
 												"type": "SqlServerSource",
-												"sqlReaderQuery": "@if(equals(toLower(item().Load_Type), 'incremental'), concat('SELECT MAX(', item().Watermark_column, ') AS Watermark_Value FROM [', item().Source_Object_Schema, '].', item().Source_Object_Name), 'SELECT NULL AS Watermark_Value')",
+												"sqlReaderQuery": {
+													"value": "@concat('Select * from ' ,item().Source_Object_Schema,'.',item().Source_Object_Name,' where ',item().watermark_column,'>',item().watermark_value)",
+													"type": "Expression"
+												},
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
 											"sink": {
 												"type": "AzureSqlSink",
-												"writeBehavior": "insert",
+												"writeBehavior": "upsert",
+												"upsertSettings": {
+													"useTempDB": true,
+													"keys": [
+														"route_id"
+													]
+												},
 												"sqlWriterUseTableLock": false,
 												"tableOption": "autoCreate",
 												"disableMetricsCollection": false
@@ -158,10 +166,10 @@
 										],
 										"outputs": [
 											{
-												"referenceName": "AzureSqlTable3",
+												"referenceName": "AzureSqlTableProductsone",
 												"type": "DatasetReference",
 												"parameters": {
-													"Source_Object_Name": "Product"
+													"Table_Name": "routeon"
 												}
 											}
 										]
@@ -196,8 +204,11 @@
 													"value": "@item().watermark_column",
 													"type": "String"
 												},
-												"Watermark_Value": {
-													"value": "@activity('Lookup2').output.value[0].watermark_value",
+												"Watermark_Value_One": {
+													"value": {
+														"value": "@activity('Lookup2').output.value[0].watermark_valueOne",
+														"type": "Expression"
+													},
 													"type": "String"
 												}
 											}
