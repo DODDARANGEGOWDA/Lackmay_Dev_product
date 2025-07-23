@@ -155,7 +155,10 @@
 										"outputs": [
 											{
 												"referenceName": "AzureSqlTable3",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"Source_Object_Name": "Product"
+												}
 											}
 										]
 									},
