@@ -125,7 +125,7 @@
 												"upsertSettings": {
 													"useTempDB": true,
 													"keys": [
-														"MQ_ID"
+														"Market_id"
 													]
 												},
 												"sqlWriterUseTableLock": false,
