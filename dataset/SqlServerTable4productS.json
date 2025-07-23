@@ -9,10 +9,10 @@
 			}
 		},
 		"parameters": {
-			"Soures_Object_Schema": {
+			"Source_Object__Schema": {
 				"type": "string"
 			},
-			"Soures_Object_Name": {
+			"Source_Object_Name": {
 				"type": "string"
 			}
 		},
@@ -21,11 +21,11 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": {
-				"value": "@dataset().Soures_Object_Schema",
+				"value": "@dataset().Source_Object__Schema",
 				"type": "Expression"
 			},
 			"table": {
-				"value": "@dataset().Soures_Object_Name",
+				"value": "@dataset().Source_Object_Name",
 				"type": "Expression"
 			}
 		}
