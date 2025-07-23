@@ -5,8 +5,26 @@
 			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Source_Object_Schema": {
+				"type": "string"
+			},
+			"Source_Object_Name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().Source_Object_Schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().Source_Object_Name",
+				"type": "Expression"
+			}
+		}
 	}
 }
