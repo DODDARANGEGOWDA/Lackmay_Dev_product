@@ -163,7 +163,7 @@
 												"referenceName": "AzureSqlTableMarketsql",
 												"type": "DatasetReference",
 												"parameters": {
-													"Table_Name": "Market"
+													"Table_Name": "MarketOne"
 												}
 											}
 										]
