@@ -1,0 +1,23 @@
+{
+	"name": "SqlServerTable4productSOne",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerDatabaseDynamic",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database": "B7_supplyChainProject"
+			}
+		},
+		"parameters": {
+			"Soures_Object_Schema": {
+				"type": "string"
+			},
+			"Soures_Object_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
