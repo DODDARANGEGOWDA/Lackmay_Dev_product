@@ -1,0 +1,33 @@
+{
+	"name": "SqlServerTableMarket",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerDatabaseDynamic",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database": "B7_supplyChainProject"
+			}
+		},
+		"parameters": {
+			"Sources_Object_Schema": {
+				"type": "string"
+			},
+			"Sources_Object_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().Sources_Object_Schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().Sources_Object_Name",
+				"type": "Expression"
+			}
+		}
+	}
+}
