@@ -72,7 +72,10 @@
 										"typeProperties": {
 											"source": {
 												"type": "SqlServerSource",
-												"sqlReaderQuery": "@if(equals(toLower(item().Load_Type), 'incremental'), concat('SELECT MAX(', item().Watermark_column, ') AS Watermark_Value FROM [', item().Source_Object_Schema, '].', item().Source_Object_Name), 'SELECT NULL AS Watermark_Value')",
+												"sqlReaderQuery": {
+													"value": "@if(equals(toLower(item().Load_Type), 'incremental'), concat('SELECT MAX(', item().Watermark_column, ') AS Watermark_Value FROM [', item().Source_Object_Schema, '].', item().Source_Object_Name), 'SELECT NULL AS Watermark_Value')",
+													"type": "Expression"
+												},
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
@@ -112,20 +115,19 @@
 										"typeProperties": {
 											"source": {
 												"type": "SqlServerSource",
-												"sqlReaderQuery": "@concat('Select * from ' ,item().Source_Object_Schema,'.',item().Source_Object_Name,' where ',item().watermark_column,'>',item().watermark_value)",
+												"sqlReaderQuery": {
+													"value": "@concat('Select * from ' ,item().Source_Object_Schema,'.',item().Source_Object_Name,' where ',item().watermark_column,'>',item().watermark_value)",
+													"type": "Expression"
+												},
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
 											"sink": {
-												"type": "DelimitedTextSink",
-												"storeSettings": {
-													"type": "AzureBlobFSWriteSettings"
-												},
-												"formatSettings": {
-													"type": "DelimitedTextWriteSettings",
-													"quoteAllText": true,
-													"fileExtension": ".txt"
-												}
+												"type": "AzureSqlSink",
+												"writeBehavior": "insert",
+												"sqlWriterUseTableLock": false,
+												"tableOption": "autoCreate",
+												"disableMetricsCollection": false
 											},
 											"enableStaging": false,
 											"translator": {
@@ -155,17 +157,10 @@
 										],
 										"outputs": [
 											{
-												"referenceName": "DelimitedTextHP",
+												"referenceName": "AzureSqlTablehp",
 												"type": "DatasetReference",
 												"parameters": {
-													"Target_Location": {
-														"value": "@item().Target_Location",
-														"type": "Expression"
-													},
-													"Target_Object_Name": {
-														"value": "@concat(item().Target_Object_Name,'.csv')",
-														"type": "Expression"
-													}
+													"TABLE_NAME": "purs"
 												}
 											}
 										]
@@ -200,7 +195,10 @@
 													"type": "String"
 												},
 												"Watermark_Column": {
-													"value": "@item().watermark_column",
+													"value": {
+														"value": "@item().watermark_column",
+														"type": "Expression"
+													},
 													"type": "String"
 												},
 												"Watermark_Value": {
