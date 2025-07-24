@@ -169,7 +169,7 @@
 												"referenceName": "AzureSqlTable2",
 												"type": "DatasetReference",
 												"parameters": {
-													"TABLE_NAME": "newON"
+													"TABLE_NAME": "newOne"
 												}
 											}
 										]
