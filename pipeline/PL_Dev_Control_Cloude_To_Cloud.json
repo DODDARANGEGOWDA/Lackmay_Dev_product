@@ -288,6 +288,115 @@
 											"referenceName": "AzureSqlDatabase1",
 											"type": "LinkedServiceReference"
 										}
+									},
+									{
+										"name": "Stored procedure2",
+										"type": "SqlServerStoredProcedure",
+										"dependsOn": [
+											{
+												"activity": "Copy data1",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"storedProcedureName": "[dbo].[sp_UpdateLogTable]",
+											"storedProcedureParameters": {
+												"CopyActivity_End_Time": {
+													"value": "@{utcnow()}",
+													"type": "String"
+												},
+												"CopyActivity_queuingDuration_in_secs": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].detailedDurations.queuingDuration}",
+													"type": "String"
+												},
+												"CopyActivity_Start_Time": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].start}",
+													"type": "String"
+												},
+												"CopyActivity_transferDuration_in_secs": {
+													"value": "@{activity('Copy data1').output.copyDuration}",
+													"type": "String"
+												},
+												"copyDuration_in_secs": {
+													"value": "@{activity('Copy data1').output.copyDuration}",
+													"type": "String"
+												},
+												"DataFactory_Name": {
+													"value": "@{pipeline().DataFactory}",
+													"type": "String"
+												},
+												"DataRead": {
+													"value": "@{activity('Copy data1').output.dataRead}",
+													"type": "Int32"
+												},
+												"Destination": {
+													"value": "@{item().Target_Object_Name}",
+													"type": "String"
+												},
+												"effectiveIntegrationRuntime": {
+													"value": "@{activity('Copy data1').output.effectiveIntegrationRuntime}",
+													"type": "String"
+												},
+												"Execution_Status": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].status}",
+													"type": "String"
+												},
+												"Pipeline_Name": {
+													"value": "@{pipeline().Pipeline}",
+													"type": "String"
+												},
+												"rowsCopied": {
+													"value": "@{activity('Copy data1').output.rowsCopied}",
+													"type": "String"
+												},
+												"RunID": {
+													"value": "@pipeline().RunId",
+													"type": "String"
+												},
+												"Sink_Type": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].sink.type}",
+													"type": "String"
+												},
+												"Source": {
+													"value": "@{item().Source_System_Name}",
+													"type": "String"
+												},
+												"Source_Type": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].source}",
+													"type": "String"
+												},
+												"TriggerId": {
+													"value": "@{pipeline().TriggerId}",
+													"type": "String"
+												},
+												"TriggerName": {
+													"value": "@{pipeline().TriggerName}",
+													"type": "String"
+												},
+												"TriggerTime": {
+													"value": "@{pipeline().TriggerTime}",
+													"type": "String"
+												},
+												"TriggerType": {
+													"value": "@{pipeline().TriggerType}",
+													"type": "String"
+												}
+											}
+										},
+										"linkedServiceName": {
+											"referenceName": "AzureSqlDatabase1",
+											"type": "LinkedServiceReference"
+										}
 									}
 								]
 							}
