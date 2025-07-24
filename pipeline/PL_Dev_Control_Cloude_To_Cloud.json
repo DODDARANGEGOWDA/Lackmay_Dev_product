@@ -397,6 +397,107 @@
 											"referenceName": "AzureSqlDatabase1",
 											"type": "LinkedServiceReference"
 										}
+									},
+									{
+										"name": "Stored procedure3",
+										"type": "SqlServerStoredProcedure",
+										"dependsOn": [
+											{
+												"activity": "Copy data1",
+												"dependencyConditions": [
+													"Failed"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"storedProcedureName": "[dbo].[sp_UpdateErrorTable]",
+											"storedProcedureParameters": {
+												"copyDuration_in_secs": {
+													"value": "@{activity('Copy data1').output.copyDuration}",
+													"type": "String"
+												},
+												"DataFactory_Name": {
+													"value": "@{pipeline().DataFactory}",
+													"type": "String"
+												},
+												"Destination": {
+													"value": "@{item().Target_Object_Name}",
+													"type": "String"
+												},
+												"effectiveIntegrationRuntime": {
+													"value": "@{activity('Copy data1').output.effectiveIntegrationRuntime}",
+													"type": "String"
+												},
+												"ErrorCode": {
+													"value": "@{activity('Copy data1').output.error.errorCode}",
+													"type": "String"
+												},
+												"ErrorDescription": {
+													"value": "@{activity('Copy data1').error.message}",
+													"type": "String"
+												},
+												"ErrorLoggedTime": {
+													"value": "@utcNow()",
+													"type": "String"
+												},
+												"Execution_Status": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].status}",
+													"type": "String"
+												},
+												"FailureType": {
+													"value": "@{concat(activity('Copy data1').error.message,'failureType:',activity('Copy data1').error.failureType)}",
+													"type": "String"
+												},
+												"Pipeline_Name": {
+													"value": "@pipeline().Pipeline",
+													"type": "String"
+												},
+												"RunId": {
+													"value": "@pipeline().RunId",
+													"type": "String"
+												},
+												"Sink_Type": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].sink.type}",
+													"type": "String"
+												},
+												"Source": {
+													"value": "@{item().Source_System_Name}",
+													"type": "String"
+												},
+												"Source_Type": {
+													"value": "@{activity('Copy data1').output.executionDetails[0].source}",
+													"type": "String"
+												},
+												"TriggerId": {
+													"value": "@{pipeline().TriggerId}",
+													"type": "String"
+												},
+												"TriggerName": {
+													"value": "@{pipeline().TriggerName}",
+													"type": "String"
+												},
+												"TriggerTime": {
+													"value": "@{pipeline().TriggerTime}",
+													"type": "String"
+												},
+												"TriggerType": {
+													"value": "@{pipeline().TriggerType}",
+													"type": "String"
+												}
+											}
+										},
+										"linkedServiceName": {
+											"referenceName": "AzureSqlDatabase1",
+											"type": "LinkedServiceReference"
+										}
 									}
 								]
 							}
