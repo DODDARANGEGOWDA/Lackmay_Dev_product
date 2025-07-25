@@ -45,14 +45,17 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "CloudeToAzure",
+						"referenceName": "delete2",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Cloudetoazuresql",
-						"type": "DatasetReference"
+						"referenceName": "delete3",
+						"type": "DatasetReference",
+						"parameters": {
+							"Table_name": "productS"
+						}
 					}
 				]
 			}
