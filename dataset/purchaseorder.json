@@ -1,0 +1,105 @@
+{
+	"name": "purchaseorder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "PO_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "P_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Availability",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Number_of_products_sold",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Revenue_generated",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Stock_levels",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lead_times",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order_quantities",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping_times",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping_carriers",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping_costs",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Supplier_Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lead_time",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Production_volumes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Manufacturing_lead_time",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Manufacturing_costs",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Inspection_results",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Defect_rates",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Transportation_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Costs",
+				"type": "nvarchar"
+			},
+			{
+				"name": "route_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastUpdateDate",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dbo.purchaseorder"
+		}
+	}
+}

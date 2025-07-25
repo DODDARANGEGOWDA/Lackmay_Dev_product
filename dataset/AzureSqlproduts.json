@@ -1,0 +1,29 @@
+{
+	"name": "AzureSqlproduts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "P_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Price",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "productS"
+		}
+	}
+}
