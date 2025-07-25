@@ -640,83 +640,143 @@
 													"storedProcedureName": "[[dbo].[sp_UpdateLogTable]",
 													"storedProcedureParameters": {
 														"CopyActivity_End_Time": {
-															"value": "@{utcnow()}",
+															"value": {
+																"value": "@{utcnow()}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"CopyActivity_queuingDuration_in_secs": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].detailedDurations.queuingDuration}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].detailedDurations.queuingDuration}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"CopyActivity_Start_Time": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].start}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].start}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"CopyActivity_transferDuration_in_secs": {
-															"value": "@{activity('Copy data1').output.copyDuration}",
+															"value": {
+																"value": "@{activity('Copy data1').output.copyDuration}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"copyDuration_in_secs": {
-															"value": "@{activity('Copy data1').output.copyDuration}",
+															"value": {
+																"value": "@{activity('Copy data1').output.copyDuration}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"DataFactory_Name": {
-															"value": "@{pipeline().DataFactory}",
+															"value": {
+																"value": "@{pipeline().DataFactory}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"DataRead": {
-															"value": "@{activity('Copy data1').output.dataRead}",
+															"value": {
+																"value": "@{activity('Copy data1').output.dataRead}",
+																"type": "Expression"
+															},
 															"type": "Int32"
 														},
 														"Destination": {
-															"value": "@{item().Target_Object_Name}",
+															"value": {
+																"value": "@{item().Target_Object_Name}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"effectiveIntegrationRuntime": {
-															"value": "@{activity('Copy data1').output.effectiveIntegrationRuntime}",
+															"value": {
+																"value": "@{activity('Copy data1').output.effectiveIntegrationRuntime}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Execution_Status": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].status}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].status}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Pipeline_Name": {
-															"value": "@{pipeline().Pipeline}",
+															"value": {
+																"value": "@{pipeline().Pipeline}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"rowsCopied": {
-															"value": "@{activity('Copy data1').output.rowsCopied}",
+															"value": {
+																"value": "@{activity('Copy data1').output.rowsCopied}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"RunID": {
-															"value": "@pipeline().RunId",
+															"value": {
+																"value": "@pipeline().RunId",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Sink_Type": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].sink.type}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].sink.type}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Source": {
-															"value": "@{item().Source_System_Name}",
+															"value": {
+																"value": "@{item().Source_System_Name}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Source_Type": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].source}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].source}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerId": {
-															"value": "@{pipeline().TriggerId}",
+															"value": {
+																"value": "@{pipeline().TriggerId}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerName": {
-															"value": "@{pipeline().TriggerName}",
+															"value": {
+																"value": "@{pipeline().TriggerName}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerTime": {
-															"value": "@{pipeline().TriggerTime}",
+															"value": {
+																"value": "@{pipeline().TriggerTime}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerType": {
-															"value": "@{pipeline().TriggerType}",
+															"value": {
+																"value": "@{pipeline().TriggerType}",
+																"type": "Expression"
+															},
 															"type": "String"
 														}
 													}
@@ -749,75 +809,129 @@
 													"storedProcedureName": "[[dbo].[sp_UpdateErrorTable]",
 													"storedProcedureParameters": {
 														"copyDuration_in_secs": {
-															"value": "@{activity('Copy data1').output.copyDuration}",
+															"value": {
+																"value": "@{activity('Copy data1').output.copyDuration}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"DataFactory_Name": {
-															"value": "@{pipeline().DataFactory}",
+															"value": {
+																"value": "@{pipeline().DataFactory}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Destination": {
-															"value": "@{item().Target_Object_Name}",
+															"value": {
+																"value": "@{item().Target_Object_Name}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"effectiveIntegrationRuntime": {
-															"value": "@{activity('Copy data1').output.effectiveIntegrationRuntime}",
+															"value": {
+																"value": "@{activity('Copy data1').output.effectiveIntegrationRuntime}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"ErrorCode": {
-															"value": "@{activity('Copy data1').output.error.errorCode}",
+															"value": {
+																"value": "@{activity('Copy data1').output.error.errorCode}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"ErrorDescription": {
-															"value": "@{activity('Copy data1').error.message}",
+															"value": {
+																"value": "@{activity('Copy data1').error.message}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"ErrorLoggedTime": {
-															"value": "@utcNow()",
+															"value": {
+																"value": "@utcNow()",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Execution_Status": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].status}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].status}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"FailureType": {
-															"value": "@{concat(activity('Copy data1').error.message,'failureType:',activity('Copy data1').error.failureType)}",
+															"value": {
+																"value": "@{concat(activity('Copy data1').error.message,'failureType:',activity('Copy data1').error.failureType)}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Pipeline_Name": {
-															"value": "@pipeline().Pipeline",
+															"value": {
+																"value": "@pipeline().Pipeline",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"RunId": {
-															"value": "@pipeline().RunId",
+															"value": {
+																"value": "@pipeline().RunId",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Sink_Type": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].sink.type}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].sink.type}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Source": {
-															"value": "@{item().Source_System_Name}",
+															"value": {
+																"value": "@{item().Source_System_Name}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"Source_Type": {
-															"value": "@{activity('Copy data1').output.executionDetails[0].source}",
+															"value": {
+																"value": "@{activity('Copy data1').output.executionDetails[0].source}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerId": {
-															"value": "@{pipeline().TriggerId}",
+															"value": {
+																"value": "@{pipeline().TriggerId}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerName": {
-															"value": "@{pipeline().TriggerName}",
+															"value": {
+																"value": "@{pipeline().TriggerName}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerTime": {
-															"value": "@{pipeline().TriggerTime}",
+															"value": {
+																"value": "@{pipeline().TriggerTime}",
+																"type": "Expression"
+															},
 															"type": "String"
 														},
 														"TriggerType": {
-															"value": "@{pipeline().TriggerType}",
+															"value": {
+																"value": "@{pipeline().TriggerType}",
+																"type": "Expression"
+															},
 															"type": "String"
 														}
 													}
