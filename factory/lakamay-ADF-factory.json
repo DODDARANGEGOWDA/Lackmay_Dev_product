@@ -1,0 +1,9 @@
+{
+	"name": "lakamay-ADF-factory",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c96c6c6b-29cb-49f4-add3-eb9f36fef7d1",
+		"tenantId": "863b4164-b691-4056-976e-621ae6275d31"
+	}
+}
