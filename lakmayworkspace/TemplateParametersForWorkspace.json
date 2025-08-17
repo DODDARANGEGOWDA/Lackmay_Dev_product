@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "lakmayworkspace"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabaselakmay_password": {
+			"value": ""
+		},
+		"lakmayworkspace-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:lakmayworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adfhuteclacmaystorage.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabaselakmay_properties_typeProperties_server": {
+			"value": "lacmayserver.database.windows.net"
+		},
+		"AzureSqlDatabaselakmay_properties_typeProperties_database": {
+			"value": "lacmaydatabase"
+		},
+		"AzureSqlDatabaselakmay_properties_typeProperties_userName": {
+			"value": "gowda"
+		},
+		"lakmayworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://adfhuteclacmaystorage.dfs.core.windows.net"
+		}
+	}
+}
