@@ -1,15 +1,15 @@
 {
-	"name": "DelimitedTextONE",
+	"name": "DelimitedText1Vivo",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"TABLE_SCHEMA": {
+			"Target_Location": {
 				"type": "string"
 			},
-			"TABLE_NAME": {
+			"Target_Object_Name": {
 				"type": "string"
 			}
 		},
@@ -19,21 +19,33 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().TABLE_NAME",
+					"value": "@dataset().Target_Object_Name",
 					"type": "Expression"
 				},
-				"folderPath": {
-					"value": "@dataset().TABLE_SCHEMA",
+				"fileSystem": {
+					"value": "@dataset().Target_Location",
 					"type": "Expression"
-				},
-				"fileSystem": "dell"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "P_ID",
+				"type": "String"
+			},
+			{
+				"name": "Product_type",
+				"type": "String"
+			},
+			{
+				"name": "Price",
+				"type": "String"
+			}
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }
