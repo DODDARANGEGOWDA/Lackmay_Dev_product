@@ -42,6 +42,11 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServerDatabaseDynamic'"
 		},
+		"lakmaysynapseworkspace-WorkspaceDefaultSqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lakmaysynapseworkspace-WorkspaceDefaultSqlServer'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:lakmaysynapseworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adfhuteclacmaystorage.dfs.core.windows.net/"
@@ -69,6 +74,10 @@
 		"SqlServerDatabaseDynamic_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "DESKTOP-OGG0RHF\\Administrator"
+		},
+		"lakmaysynapseworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://lakmaystrorageaccount.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"type": "string",
@@ -121,6 +130,9 @@
 					"SqlServerDatabaseDynamic_password": {
 						"value": "[parameters('SqlServerDatabaseDynamic_password')]"
 					},
+					"lakmaysynapseworkspace-WorkspaceDefaultSqlServer_connectionString": {
+						"value": "[parameters('lakmaysynapseworkspace-WorkspaceDefaultSqlServer_connectionString')]"
+					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
 					},
@@ -141,30 +153,13 @@
 					},
 					"SqlServerDatabaseDynamic_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServerDatabaseDynamic_properties_typeProperties_userName')]"
+					},
+					"lakmaysynapseworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+						"value": "[parameters('lakmaysynapseworkspace-WorkspaceDefaultStorage_properties_typeProperties_url')]"
 					}
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "adf-huctec-dev_ArmTemplate_1",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2024-03-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'adf-huctec-dev_ArmTemplate_0')]"
-			]
 		}
 	]
 }

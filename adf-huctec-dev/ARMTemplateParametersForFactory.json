@@ -29,6 +29,9 @@
 		"SqlServerDatabaseDynamic_password": {
 			"value": ""
 		},
+		"lakmaysynapseworkspace-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:lakmaysynapseworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://adfhuteclacmaystorage.dfs.core.windows.net/"
 		},
@@ -49,6 +52,9 @@
 		},
 		"SqlServerDatabaseDynamic_properties_typeProperties_userName": {
 			"value": "DESKTOP-OGG0RHF\\Administrator"
+		},
+		"lakmaysynapseworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://lakmaystrorageaccount.dfs.core.windows.net"
 		}
 	}
 }
