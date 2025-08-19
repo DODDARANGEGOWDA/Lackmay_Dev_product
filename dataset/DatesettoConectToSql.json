@@ -1,0 +1,19 @@
+{
+	"name": "DatesettoConectToSql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SynapseAnalyticsLocalOnprime_LinkedServies",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"SynapseAnalyticsDynamicParameter": "Dell"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Employees"
+		}
+	}
+}
