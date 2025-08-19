@@ -1,0 +1,27 @@
+{
+	"name": "Local_sql_server_Onprime",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"Dyanamic_name": {
+				"type": "String",
+				"defaultValue": "Sample"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-63B1TUM\\MSSQLSERVER01",
+			"database": "@{linkedService().Dyanamic_name}",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "DESKTOP-63B1TUM\\Administrator",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NTk3NGM0MS04ODgyLTQ0ZjctOWExYy00MmYwMWJjYTYzYTgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "LocalSqlServer",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
