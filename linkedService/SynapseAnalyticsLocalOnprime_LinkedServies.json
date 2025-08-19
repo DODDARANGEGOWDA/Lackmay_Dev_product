@@ -1,0 +1,23 @@
+{
+	"name": "SynapseAnalyticsLocalOnprime_LinkedServies",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"parameters": {
+			"SynapseAnalyticsDynamicParameter": {
+				"type": "String",
+				"defaultValue": "Dell"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=DESKTOP-63B1TUM\\MSSQLSERVER01;initial catalog=@{linkedService().SynapseAnalyticsDynamicParameter}",
+			"userName": "DESKTOP-63B1TUM\\Administrator",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxYTc1OWIzNi0yM2ZiLTQ2NTEtYjkwMy04Yjk5NTU2MjU1ZTciLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SynapseAnalyticsLocalOnprimeLinkedServies",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
