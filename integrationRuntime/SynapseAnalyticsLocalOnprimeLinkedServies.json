@@ -1,0 +1,6 @@
+{
+	"name": "SynapseAnalyticsLocalOnprimeLinkedServies",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
