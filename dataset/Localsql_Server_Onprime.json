@@ -1,13 +1,6 @@
 {
 	"name": "Localsql_Server_Onprime",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "Localsql_Server_Onprime",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"Dynamicalyy_pasing": "Dell"
-			}
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [],
