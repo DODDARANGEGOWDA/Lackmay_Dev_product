@@ -1,0 +1,22 @@
+{
+	"name": "LocalOnprimeSqlServer",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"parameters": {
+			"Database_name": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=DESKTOP-63B1TUM\\MSSQLSERVER01;initial catalog=@{linkedService().Database_name}",
+			"userName": "DESKTOP-63B1TUM\\Administrator",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIwZTcxOTQ3ZS01YzAwLTQwYzgtOTMxNS05YTlkMGU4YzBmZGUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "LocalOnprimesSqlServer",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
