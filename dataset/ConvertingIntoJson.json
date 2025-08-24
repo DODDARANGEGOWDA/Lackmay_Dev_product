@@ -1,10 +1,6 @@
 {
 	"name": "ConvertingIntoJson",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
