@@ -6,7 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"table": {
+			"Target_Location": {
+				"type": "string"
+			},
+			"Target_Object_Name": {
 				"type": "string"
 			}
 		},
@@ -16,11 +19,14 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().table",
+					"value": "@dataset().Target_Object_Name",
 					"type": "Expression"
 				},
-				"folderPath": "DIM",
-				"fileSystem": "raw-layer"
+				"folderPath": {
+					"value": "@dataset().Target_Location",
+					"type": "Expression"
+				},
+				"fileSystem": "synapsecontainer"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

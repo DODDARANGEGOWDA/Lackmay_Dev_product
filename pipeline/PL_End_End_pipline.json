@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
+						"sqlReaderQuery": "select * from controltable where indicator = 1",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -54,7 +55,175 @@
 								"expression": {
 									"value": "@equals(item().Load_Type,'incremental')",
 									"type": "Expression"
-								}
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Lookup2",
+										"type": "Lookup",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "SqlServerSource",
+												"sqlReaderQuery": "@if(equals(toLower(item().Load_Type), 'incremental'), concat('SELECT MAX(', item().Watermark_column, ') AS Watermark_Value FROM [', item().Source_Object_Schema, '].', item().Source_Object_Name), 'SELECT NULL AS Watermark_Value')",
+												"queryTimeout": "02:00:00",
+												"partitionOption": "None"
+											},
+											"dataset": {
+												"referenceName": "SqlServerTable2",
+												"type": "DatasetReference",
+												"parameters": {
+													"Sources_Object_Schema": {
+														"value": "@item().Source_Object_Schema",
+														"type": "Expression"
+													},
+													"Sources_Object_Name": {
+														"value": "@item().Source_Object_Name",
+														"type": "Expression"
+													}
+												}
+											},
+											"firstRowOnly": false
+										}
+									},
+									{
+										"name": "Copy data1",
+										"type": "Copy",
+										"dependsOn": [
+											{
+												"activity": "Lookup2",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "SqlServerSource",
+												"sqlReaderQuery": {
+													"value": "@concat('Select * from ' ,item().Source_Object_Schema,'.',item().Source_Object_Name,' where ',item().watermark_column,'>',item().watermark_value)",
+													"type": "Expression"
+												},
+												"queryTimeout": "02:00:00",
+												"partitionOption": "None"
+											},
+											"sink": {
+												"type": "DelimitedTextSink",
+												"storeSettings": {
+													"type": "AzureBlobFSWriteSettings"
+												},
+												"formatSettings": {
+													"type": "DelimitedTextWriteSettings",
+													"quoteAllText": true,
+													"fileExtension": ".txt"
+												}
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": true,
+													"treatBooleanAsNumber": false
+												}
+											}
+										},
+										"inputs": [
+											{
+												"referenceName": "SqlServerTable2",
+												"type": "DatasetReference",
+												"parameters": {
+													"Sources_Object_Schema": {
+														"value": "@item().Source_Object_Schema",
+														"type": "Expression"
+													},
+													"Sources_Object_Name": {
+														"value": "@item().Source_Object_Name",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "DelimitedText1",
+												"type": "DatasetReference",
+												"parameters": {
+													"Target_Location": "@item().Target_Location",
+													"Target_Object_Name": {
+														"value": "@concat(item().Target_Object_Name,'.csv')",
+														"type": "Expression"
+													}
+												}
+											}
+										]
+									},
+									{
+										"name": "Stored procedure1",
+										"type": "SqlServerStoredProcedure",
+										"dependsOn": [
+											{
+												"activity": "Copy data1",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"storedProcedureName": "[dbo].[sp_UpdateWatermark]",
+											"storedProcedureParameters": {
+												"Source_Object_Name": {
+													"value": {
+														"value": "@item().Source_Object_Name",
+														"type": "Expression"
+													},
+													"type": "String"
+												},
+												"Watermark_Column": {
+													"value": {
+														"value": "@item().Watermark_column",
+														"type": "Expression"
+													},
+													"type": "String"
+												},
+												"Watermark_Value": {
+													"value": {
+														"value": "@activity('Lookup2').output.value[0].watermark_value",
+														"type": "Expression"
+													},
+													"type": "String"
+												}
+											}
+										},
+										"linkedServiceName": {
+											"referenceName": "AzureSqlDatabaseOncloude",
+											"type": "LinkedServiceReference"
+										}
+									}
+								]
 							}
 						}
 					]

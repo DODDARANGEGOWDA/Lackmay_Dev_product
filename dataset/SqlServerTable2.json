@@ -1,0 +1,33 @@
+{
+	"name": "SqlServerTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LocalOnprimeSqlServer",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database_name": "CTech"
+			}
+		},
+		"parameters": {
+			"Sources_Object_Schema": {
+				"type": "string"
+			},
+			"Sources_Object_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().Sources_Object_Schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().Sources_Object_Name",
+				"type": "Expression"
+			}
+		}
+	}
+}
