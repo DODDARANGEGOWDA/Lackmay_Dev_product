@@ -48,7 +48,7 @@
 						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference",
 						"parameters": {
-							"table": "fact"
+							"table": "factTwo"
 						}
 					}
 				]
