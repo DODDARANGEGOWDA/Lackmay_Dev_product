@@ -8,6 +8,9 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureSqlDatabaseOncloude_password": {
+			"value": ""
+		},
 		"LocalOnprimeSqlServer_connectionString": {
 			"value": "integrated security=True;Data Source=DESKTOP-63B1TUM\\MSSQLSERVER01;Initial Catalog=@{linkedService().Database_name}"
 		},
@@ -16,6 +19,15 @@
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://lakmaygowda.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabaseOncloude_properties_typeProperties_server": {
+			"value": "lakmay.database.windows.net"
+		},
+		"AzureSqlDatabaseOncloude_properties_typeProperties_database": {
+			"value": "Gowda"
+		},
+		"AzureSqlDatabaseOncloude_properties_typeProperties_userName": {
+			"value": "gowda"
 		},
 		"LocalOnprimeSqlServer_properties_typeProperties_userName": {
 			"value": "DESKTOP-63B1TUM\\Administrator"
