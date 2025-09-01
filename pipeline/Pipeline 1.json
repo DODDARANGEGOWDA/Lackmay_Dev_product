@@ -22,12 +22,8 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"writeBehavior": "upsert",
-						"upsertSettings": {
-							"useTempDB": true,
-							"keys": []
-						},
-						"sqlWriterUseTableLock": false,
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": true,
 						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
@@ -50,7 +46,10 @@
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"table": "fact"
+						}
 					}
 				]
 			}
