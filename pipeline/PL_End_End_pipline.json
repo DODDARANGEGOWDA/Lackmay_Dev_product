@@ -90,7 +90,7 @@
 													}
 												}
 											},
-											"firstRowOnly": false
+											"firstRowOnly": true
 										}
 									},
 									{
@@ -164,7 +164,10 @@
 												"referenceName": "DelimitedText1",
 												"type": "DatasetReference",
 												"parameters": {
-													"Target_Location": "@item().Target_Location",
+													"Target_Location": {
+														"value": "@item().Target_Location",
+														"type": "Expression"
+													},
 													"Target_Object_Name": {
 														"value": "@concat(item().Target_Object_Name,'.csv')",
 														"type": "Expression"
@@ -204,7 +207,7 @@
 												},
 												"Watermark_Column": {
 													"value": {
-														"value": "@item().Watermark_column",
+														"value": "@item().Watermark_Column",
 														"type": "Expression"
 													},
 													"type": "String"
