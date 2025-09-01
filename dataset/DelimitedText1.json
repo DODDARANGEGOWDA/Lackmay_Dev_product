@@ -5,27 +5,12 @@
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"Target_Location": {
-				"type": "string"
-			},
-			"Target_Object_Name": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().Target_Object_Name",
-					"type": "Expression"
-				},
-				"folderPath": {
-					"value": "@dataset().Target_Location",
-					"type": "Expression"
-				},
+				"folderPath": "synapse",
 				"fileSystem": "synapsecontainer"
 			},
 			"columnDelimiter": ",",
