@@ -19,7 +19,8 @@
 					"value": "@dataset().table",
 					"type": "Expression"
 				},
-				"fileSystem": "bronzes-layer"
+				"folderPath": "DIM",
+				"fileSystem": "raw-layer"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
