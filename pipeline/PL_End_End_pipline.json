@@ -79,20 +79,6 @@
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
-											"dataset": {
-												"referenceName": "SqlServerTable2",
-												"type": "DatasetReference",
-												"parameters": {
-													"Sources_Object_Schema": {
-														"value": "@item().Source_Object_Schema",
-														"type": "Expression"
-													},
-													"Sources_Object_Name": {
-														"value": "@item().Source_Object_Name",
-														"type": "Expression"
-													}
-												}
-											},
 											"firstRowOnly": true
 										}
 									},
@@ -136,32 +122,8 @@
 													"fileExtension": ".txt"
 												}
 											},
-											"enableStaging": false,
-											"translator": {
-												"type": "TabularTranslator",
-												"typeConversion": true,
-												"typeConversionSettings": {
-													"allowDataTruncation": true,
-													"treatBooleanAsNumber": false
-												}
-											}
+											"enableStaging": false
 										},
-										"inputs": [
-											{
-												"referenceName": "SqlServerTable2",
-												"type": "DatasetReference",
-												"parameters": {
-													"Sources_Object_Schema": {
-														"value": "@item().Source_Object_Schema",
-														"type": "Expression"
-													},
-													"Sources_Object_Name": {
-														"value": "@item().Source_Object_Name",
-														"type": "Expression"
-													}
-												}
-											}
-										],
 										"outputs": [
 											{
 												"referenceName": "DelimitedText1",
@@ -223,10 +185,6 @@
 													"type": "String"
 												}
 											}
-										},
-										"linkedServiceName": {
-											"referenceName": "AzureSqlDatabaseOncloude",
-											"type": "LinkedServiceReference"
 										}
 									}
 								]
