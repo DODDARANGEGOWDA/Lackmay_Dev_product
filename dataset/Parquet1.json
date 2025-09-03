@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "products_first.parquet",
-				"fileSystem": "new"
+				"folderPath": "synapse",
+				"fileSystem": "synapsecontainer"
 			},
 			"compressionCodec": "snappy"
 		},
