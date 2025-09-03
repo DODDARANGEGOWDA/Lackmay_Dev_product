@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "sliver-layer"
+				"fileSystem": "new"
 			},
 			"compressionCodec": "snappy"
 		},
