@@ -8,20 +8,12 @@
 				"Database_name": "JOINS"
 			}
 		},
-		"parameters": {
-			"NAME": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": {
-				"value": "@dataset().NAME",
-				"type": "Expression"
-			}
+			"table": "Projects"
 		}
 	}
 }
