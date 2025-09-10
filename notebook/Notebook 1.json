@@ -1,0 +1,80 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "lakmayspark",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "ef03e2c1-f5de-4099-b42a-1b92722f0410"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/7a94fd51-8187-4b1d-b33a-28586823ebc5/resourceGroups/LakmayGowda/providers/Microsoft.Synapse/workspaces/lakmaysynapseanalytics/bigDataPools/lakmayspark",
+				"name": "lakmayspark",
+				"type": "Spark",
+				"endpoint": "https://lakmaysynapseanalytics.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/lakmayspark",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.4",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"df = spark.read.format(\"parquet\").load(\"abfss://new@lakmaygowda.dfs.core.windows.net/products_first.parquet\")"
+				],
+				"execution_count": 16
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"df.printSchema()\n",
+					""
+				],
+				"execution_count": 20
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"collapsed": false
+				},
+				"source": [
+					"df_new = df.select(\"product_id\")\n",
+					"display(df_new)\n",
+					""
+				],
+				"execution_count": 23
+			}
+		]
+	}
+}
