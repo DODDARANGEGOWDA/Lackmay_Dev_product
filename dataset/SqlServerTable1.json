@@ -5,7 +5,7 @@
 			"referenceName": "LocalOnprimeSqlServer",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"Database_name": "JOINS"
+				"Database_name": "CTech"
 			}
 		},
 		"annotations": [],
@@ -13,7 +13,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "products_first"
+			"table": "controltable"
 		}
 	}
 }
